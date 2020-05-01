@@ -1,0 +1,33 @@
+{# basic data - board URL, name and social profiles #}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	{% if U_SENKY_STRUCTUREDDATA_LOGO %}"logo": "{{ U_SENKY_STRUCTUREDDATA_LOGO }}",{% endif %}
+	{% if SENKY_STRUCTUREDDATA_NAME %}
+		"name": "{{ SENKY_STRUCTUREDDATA_NAME | e('js') }}",
+		{% if senky_structureddata_social_profiles %}
+		"sameAs": [
+			{% for profile in senky_structureddata_social_profiles %}
+				"{{ profile.URL }}"{% if not loop.last %},{% endif %}
+			{% endfor %}
+		],
+		{% endif %}
+	{% endif %}
+	"url": "{{ BOARD_URL }}"
+}
+</script>
+
+{# search #}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"url": "{{ BOARD_URL }}",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "{{ U_SENKY_STRUCTUREDDATA_SEARCH }}?keywords={{ '{' }}keywords{{ '}' }}",
+		"query-input": "required name=keywords"
+	}
+}
+</script>

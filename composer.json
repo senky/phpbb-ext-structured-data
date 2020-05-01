@@ -1,0 +1,24 @@
+{
+    "name": "senky/structureddata",
+    "type": "phpbb-extension",
+    "description": "Adds structured data that allow Google (and other search engines) better understand your board, move it up in search results and even display enhanced corporate data on the right side of the search results.",
+    "version": "1.0.0",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Jakub Senko",
+            "email": "jakubsenko@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-gd": "*",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "display-name": "SEO - Structured Data",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2.0,<3.3.0@dev"
+        }
+    }
+}

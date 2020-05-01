@@ -1,0 +1,112 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_STRUCTUREDDATA_TITLE') }}</h1>
+<p>{{ lang('ACP_STRUCTUREDDATA_EXPLAIN') }}</p>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<form method="post" action="{{ U_ACTION }}">
+
+	<fieldset>
+		<legend>{{ lang('SETTINGS') }}</legend>
+
+		<dl>
+			<dt><label for="senky_structureddata_name">{{ lang('ACP_SENKY_STRUCTUREDDATA_NAME') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_SENKY_STRUCTUREDDATA_NAME_EXPLAIN') }}</span></dt>
+			<dd><input type="text" name="senky_structureddata_name" id="senky_structureddata_name" size="30" value="{{ SENKY_STRUCTUREDDATA_NAME }}"></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="senky_structureddata_goodbye">{{ lang('ACP_STRUCTUREDDATA_LOGO_URL') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_STRUCTUREDDATA_LOGO_URL_EXPLAIN') }}</span></dt>
+			<dd><input type="url" name="senky_structureddata_logo_url" id="senky_structureddata_goodbye" size="50" value="{{ SENKY_STRUCTUREDDATA_LOGO_URL }}"></dd>
+		</dl>
+
+		<dl>
+			<dt><label>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_EXPLAIN') }}</span></dt>
+			<dd>
+				<table>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_FACEBOOK') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_facebook" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_FACEBOOK }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_TWITTER') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_twitter" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_TWITTER }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_INSTAGRAM') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_instagram" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_INSTAGRAM }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_YOUTUBE') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_youtube" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_YOUTUBE }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_LINKEDIN') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_linkedin" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_LINKEDIN }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_MYSPACE') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_myspace" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_MYSPACE }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_PINTEREST') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_pinterest" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_PINTEREST }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_SOUNDCLOUD') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_soundcloud" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_SOUNDCLOUD }}"></td>
+					</tr>
+					<tr>
+						<td>{{ lang('ACP_STRUCTUREDDATA_SOCIAL_PROFILES_TUMBLR') ~ lang('COLON') }}</td>
+						<td><input type="url" name="senky_structureddata_tumblr" size="50" value="{{ STRUCTUREDDATA_SOCIAL_PROFILES_TUMBLR }}"></td>
+					</tr>
+				</table>
+			</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		<input class="button2" type="submit" id="preview" name="preview" value="{{ lang('PREVIEW') }}" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+
+	<fieldset>
+		<legend>{{ lang('SUPPORTED_EXTENSIONS') }}</legend>
+
+		<dl>
+			<dt><label>{{ lang('PAGES') ~ lang('COLON') }}</label><br /><span>{{ lang('PAGES_EXPLAIN') }}</span></dt>
+			<dd>{% if S_PAGES_ENABLED %}{{ lang('ENABLED') }}{% else %}{{ lang('NOT_INSTALLED') }}{% endif %}</dd>
+		</dl>
+
+		<dl>
+			<dt><label>{{ lang('FIRST_POST_ONLY') ~ lang('COLON') }}</label><br /><span>{{ lang('FIRST_POST_ONLY_EXPLAIN') }}</span></dt>
+			<dd>{% if S_FIRST_POST_ONLY_ENABLED %}{{ lang('ENABLED') }}{% else %}{{ lang('NOT_INSTALLED') }}{% endif %}</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{{ lang('PLANNED_EXTENSIONS_SUPPORT') }}</legend>
+
+		<dl>
+			<dt><label>{{ lang('CALENDAR_MONO') ~ lang('COLON') }}</label><br /><span>{{ lang('CALENDAR_MONO_EXPLAIN') }}</span></dt>
+			<dd>{{ lang('BETA') }} - {{ lang('WAITING_FOR_FINAL_RELEASE') }}</dd>
+		</dl>
+		<dl>
+				
+			<dt><label>{{ lang('CALENDAR_EVENTS') ~ lang('COLON') }}</label><br /><span>{{ lang('CALENDAR_EVENTS_EXPLAIN') }}</span></dt>
+			<dd>{{ lang('BETA') }} - {{ lang('WAITING_FOR_FINAL_RELEASE') }}</dd>
+		</dl>
+		<dl>
+			<dt><label>{{ lang('BEST_ANSWER') ~ lang('COLON') }}</label><br /><span>{{ lang('BEST_ANSWER_EXPLAIN') }}</span></dt>
+			<dd>{{ lang('BETA') }} - {{ lang('WAITING_FOR_FINAL_RELEASE') }}</dd>
+		</dl>
+	</fieldset>
+</form>
+
+{% include 'overall_footer.html' %}

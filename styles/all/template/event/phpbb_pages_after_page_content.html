@@ -1,0 +1,26 @@
+{# page as Article, images extracted from post content #}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	{% if SENKY_STRUCTUREDDATA_NAME %}"author": "{{ SENKY_STRUCTUREDDATA_NAME }}",{% endif %}
+	{% if SENKY_STRUCTUREDDATA_NAME and U_SENKY_STRUCTUREDDATA_LOGO %}
+	"publisher": {
+		"@type": "Organization",
+		"name": "{{ SENKY_STRUCTUREDDATA_NAME }}",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "{{ U_SENKY_STRUCTUREDDATA_LOGO }}"
+		}
+	},
+	{% endif %}
+	{% if senky_structureddata_pages_images %}
+	"image": [
+		{% for image in senky_structureddata_pages_images %}
+			"{{ image.URL }}"{% if not loop.last %},{% endif %}
+		{% endfor %}
+	],
+	{% endif %}
+	"headline": "{{ PAGE_TITLE | slice(0, 110) }}"
+}
+</script>

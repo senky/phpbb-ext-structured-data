@@ -1,0 +1,20 @@
+services:
+    senky.structureddata.controller.acp:
+        class: senky\structureddata\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '@ext.manager'
+
+    senky.structureddata.listener:
+        class: senky\structureddata\event\main_listener
+        arguments:
+            - '@template'
+            - '@config'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }

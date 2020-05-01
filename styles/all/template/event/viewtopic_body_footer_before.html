@@ -1,0 +1,12 @@
+{# inform that this page isn't accessible for free (without registration) #}
+{% if S_SFPO %}
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "DiscussionForumPosting",
+		"@id": "{{ U_CANONICAL }}",
+		"headline": "{{ TOPIC_TITLE }}",
+		"isAccessibleForFree": "False"
+	}
+	</script>
+{% endif %}
