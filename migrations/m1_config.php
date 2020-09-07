@@ -27,7 +27,7 @@ class m1_config extends \phpbb\db\migration\migration
 	{
 		return array(
 			array('config.add', array('senky_structureddata_logo_url', '')),
-			array('config.add', array('senky_structureddata_name', '')),
+			array('config.add', array('senky_structureddata_name', $this->config['sitename'])),
 			array('config.add', array('senky_structureddata_facebook', '')),
 			array('config.add', array('senky_structureddata_twitter', '')),
 			array('config.add', array('senky_structureddata_instagram', '')),

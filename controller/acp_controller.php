@@ -20,10 +20,10 @@ class acp_controller
 	protected $template;
 	protected $user;
 	protected $ext_manager;
+	protected $same_as;
 
 	protected $u_action;
-	protected $profiles = ['facebook', 'twitter', 'instagram', 'youtube', 'linkedin', 'myspace', 'pinterest', 'soundcloud', 'tumblr'];
-	public function __construct(\phpbb\config\config $config, \phpbb\language\language $language, \phpbb\log\log $log, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\extension\manager $ext_manager)
+	public function __construct(\phpbb\config\config $config, \phpbb\language\language $language, \phpbb\log\log $log, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\extension\manager $ext_manager, $same_as)
 	{
 		$this->config = $config;
 		$this->language = $language;
@@ -32,6 +32,7 @@ class acp_controller
 		$this->template = $template;
 		$this->user = $user;
 		$this->ext_manager = $ext_manager;
+		$this->same_as = $same_as;
 	}
 
 	public function display_settings()
@@ -47,7 +48,7 @@ class acp_controller
 			{
 				$this->config->set('senky_structureddata_name', $this->request->variable('senky_structureddata_name', '', true));
 				$this->config->set('senky_structureddata_logo_url', $this->request->variable('senky_structureddata_logo_url', '', true));
-				foreach ($this->profiles as $profile)
+				foreach ($this->same_as as $profile)
 				{
 					$this->config->set('senky_structureddata_' . $profile, $this->request->variable('senky_structureddata_' . $profile, '', true));
 				}
@@ -78,7 +79,6 @@ class acp_controller
 			'STRUCTUREDDATA_SOCIAL_PROFILES_TUMBLR'		=> $this->config['senky_structureddata_tumblr'],
 
 			'S_PAGES_ENABLED'			=> $this->ext_manager->is_enabled('phpbb/pages'),
-			'S_FIRST_POST_ONLY_ENABLED'	=> $this->ext_manager->is_enabled('rmcgirr83/sfpo'),
 		));
 	}
 
@@ -127,7 +127,7 @@ class acp_controller
 		}
 
 		// social profiles
-		foreach ($this->profiles as $profile)
+		foreach ($this->same_as as $profile)
 		{
 			$url = $this->request->variable('senky_structureddata_' . $profile, '', true);
 			if (!empty($url))

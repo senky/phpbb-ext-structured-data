@@ -26,11 +26,13 @@ class main_listener implements \Symfony\Component\EventDispatcher\EventSubscribe
 	protected $template;
 	protected $config;
 	protected $php_ext;
-	public function __construct(\phpbb\template\template $template, \phpbb\config\config $config, $php_ext)
+	protected $same_as;
+	public function __construct(\phpbb\template\template $template, \phpbb\config\config $config, $php_ext, $same_as)
 	{
 		$this->template = $template;
 		$this->config = $config;
 		$this->php_ext = $php_ext;
+		$this->same_as = $same_as;
 	}
 
 	public function prepare_template_vars()
@@ -41,8 +43,7 @@ class main_listener implements \Symfony\Component\EventDispatcher\EventSubscribe
 			'U_SENKY_STRUCTUREDDATA_SEARCH'		=> generate_board_url() . '/search.' . $this->php_ext,
 		]);
 
-		$profiles = ['facebook', 'twitter', 'instagram', 'youtube', 'linkedin', 'myspace', 'pinterest', 'soundcloud', 'tumblr'];
-		foreach ($profiles as $profile)
+		foreach ($this->same_as as $profile)
 		{
 			if (!empty($this->config['senky_structureddata_' . $profile]))
 			{

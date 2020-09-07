@@ -1,3 +1,6 @@
+imports:
+    - { resource: parameters.yml }
+
 services:
     senky.structureddata.controller.acp:
         class: senky\structureddata\controller\acp_controller
@@ -9,6 +12,7 @@ services:
             - '@template'
             - '@user'
             - '@ext.manager'
+            - '%senky.structureddata.sameas%'
 
     senky.structureddata.listener:
         class: senky\structureddata\event\main_listener
@@ -16,5 +20,6 @@ services:
             - '@template'
             - '@config'
             - '%core.php_ext%'
+            - '%senky.structureddata.sameas%'
         tags:
             - { name: event.listener }

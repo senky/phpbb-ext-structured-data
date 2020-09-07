@@ -8,6 +8,13 @@
 	"publisher": {
 		"@type": "Organization",
 		"name": "{{ SENKY_STRUCTUREDDATA_NAME }}",
+		{% if senky_structureddata_social_profiles %}
+		"sameAs": [
+			{% for profile in senky_structureddata_social_profiles %}
+				"{{ profile.URL }}"{% if not loop.last %},{% endif %}
+			{% endfor %}
+		],
+		{% endif %}
 		"logo": {
 			"@type": "ImageObject",
 			"url": "{{ U_SENKY_STRUCTUREDDATA_LOGO }}"

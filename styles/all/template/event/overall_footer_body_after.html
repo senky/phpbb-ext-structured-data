@@ -3,6 +3,7 @@
 {
 	"@context": "https://schema.org",
 	"@type": "Organization",
+	"@id": "{{ U_SITE_HOME ?: BOARD_URL }}",
 	{% if U_SENKY_STRUCTUREDDATA_LOGO %}"logo": "{{ U_SENKY_STRUCTUREDDATA_LOGO }}",{% endif %}
 	{% if SENKY_STRUCTUREDDATA_NAME %}
 		"name": "{{ SENKY_STRUCTUREDDATA_NAME | e('js') }}",
@@ -14,7 +15,7 @@
 		],
 		{% endif %}
 	{% endif %}
-	"url": "{{ BOARD_URL }}"
+	"url": "{{ U_SITE_HOME ?: BOARD_URL }}"
 }
 </script>
 
@@ -23,6 +24,7 @@
 {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
+	"@id": "{{ BOARD_URL }}",
 	"url": "{{ BOARD_URL }}",
 	"potentialAction": {
 		"@type": "SearchAction",

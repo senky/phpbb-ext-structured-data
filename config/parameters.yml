@@ -1,0 +1,11 @@
+parameters:
+    senky.structureddata.sameas:
+        - 'facebook'
+        - 'twitter'
+        - 'instagram'
+        - 'youtube'
+        - 'linkedin'
+        - 'myspace'
+        - 'pinterest'
+        - 'soundcloud'
+        - 'tumblr'

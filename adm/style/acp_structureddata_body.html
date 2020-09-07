@@ -83,27 +83,25 @@
 			<dt><label>{{ lang('PAGES') ~ lang('COLON') }}</label><br /><span>{{ lang('PAGES_EXPLAIN') }}</span></dt>
 			<dd>{% if S_PAGES_ENABLED %}{{ lang('ENABLED') }}{% else %}{{ lang('NOT_INSTALLED') }}{% endif %}</dd>
 		</dl>
-
-		<dl>
-			<dt><label>{{ lang('FIRST_POST_ONLY') ~ lang('COLON') }}</label><br /><span>{{ lang('FIRST_POST_ONLY_EXPLAIN') }}</span></dt>
-			<dd>{% if S_FIRST_POST_ONLY_ENABLED %}{{ lang('ENABLED') }}{% else %}{{ lang('NOT_INSTALLED') }}{% endif %}</dd>
-		</dl>
 	</fieldset>
 
 	<fieldset>
 		<legend>{{ lang('PLANNED_EXTENSIONS_SUPPORT') }}</legend>
 
 		<dl>
+			<dt><label>{{ lang('FIRST_POST_ONLY') ~ lang('COLON') }}</label><br /><span>{{ lang('FIRST_POST_ONLY_EXPLAIN') }}</span></dt>
+			<dd>{{ lang('CDB') }} - {{ lang('ON_THE_ROADMAP') }}</dd>
+		</dl>
+		<dl>
+			<dt><label>{{ lang('BEST_ANSWER') ~ lang('COLON') }}</label><br /><span>{{ lang('BEST_ANSWER_EXPLAIN') }}</span></dt>
+			<dd>{{ lang('CDB') }} - {{ lang('ON_THE_ROADMAP') }}</dd>
+		</dl>
+		<dl>
 			<dt><label>{{ lang('CALENDAR_MONO') ~ lang('COLON') }}</label><br /><span>{{ lang('CALENDAR_MONO_EXPLAIN') }}</span></dt>
 			<dd>{{ lang('BETA') }} - {{ lang('WAITING_FOR_FINAL_RELEASE') }}</dd>
 		</dl>
 		<dl>
-				
 			<dt><label>{{ lang('CALENDAR_EVENTS') ~ lang('COLON') }}</label><br /><span>{{ lang('CALENDAR_EVENTS_EXPLAIN') }}</span></dt>
-			<dd>{{ lang('BETA') }} - {{ lang('WAITING_FOR_FINAL_RELEASE') }}</dd>
-		</dl>
-		<dl>
-			<dt><label>{{ lang('BEST_ANSWER') ~ lang('COLON') }}</label><br /><span>{{ lang('BEST_ANSWER_EXPLAIN') }}</span></dt>
 			<dd>{{ lang('BETA') }} - {{ lang('WAITING_FOR_FINAL_RELEASE') }}</dd>
 		</dl>
 	</fieldset>
